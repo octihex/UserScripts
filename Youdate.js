@@ -11,6 +11,7 @@
 'use strict';
 
 const Script_DEBUG = false
+const API_KEY = '' // GET API KEY FROM https://console.cloud.google.com/apis/credentials
 
 const Mois = {
     '01': 'janvier',
@@ -95,7 +96,7 @@ function GetPublishedDate(YT_Container, PassedFunction) {
 
     GM_xmlhttpRequest({
         method: 'GET',
-        url: `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${VideoID}&key=AIzaSyBHL7yZbtKWPau4TjfQIhaBHLqx2zS7TDg`,
+        url: `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${VideoID}&key=${API_KEY}`,
         headers: {'Sec-Fetch-Mode': 'cors'},
         /** @param {Response} response */
         onload: response => {
